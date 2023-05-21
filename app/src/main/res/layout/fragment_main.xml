@@ -7,8 +7,7 @@
     android:padding="16dp"
     tools:context=".MainFragment">
 
-    <!--建立自行定義的GeometricView元件。
-        不屬於android.widget套件，所以必須輸入完整名稱-->
+    <!--其他的元件若想保有固定大小的話就要把寬度設為常數值，不然會跟著跑版-->
     <com.example.avataruploader.GeometricView
         android:id="@+id/geometricView"
         android:layout_width="wrap_content"

@@ -16,9 +16,9 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
-        val geometricView = binding.geometricView
-        val imageBitmap = BitmapFactory.decodeResource(resources, R.drawable.img)
-        geometricView.setImage(imageBitmap)
+        val geometricView = binding.geometricView //將view調用的自定義view指派給geometricView變數
+        val imageBitmap = BitmapFactory.decodeResource(resources, R.drawable.img) //將圖片轉為Bitmap
+        geometricView.setImage(imageBitmap) //產圖
         return binding.root
     }
 }
