@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainFragment">
+
+    <!--建立自行定義的GeometricView元件。
+        不屬於android.widget套件，所以必須輸入完整名稱-->
+    <com.example.avataruploader.GeometricView
+        android:id="@+id/geometricView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"/>
+
+</LinearLayout>
