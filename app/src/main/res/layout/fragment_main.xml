@@ -8,6 +8,12 @@
     tools:context=".MainFragment">
 
     <!--其他的元件若想保有固定大小的話就要把寬度設為常數值，不然會跟著跑版-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <com.example.avataruploader.GeometricView
         android:id="@+id/geometricView"
         android:layout_width="wrap_content"
