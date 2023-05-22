@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.example.avataruploader.databinding.FragmentMainBinding
 import com.google.gson.Gson
 import com.google.gson.JsonElement
@@ -27,11 +28,19 @@ class MainFragment : Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         val geometricView = binding.geometricView //將view調用的自定義view指派給geometricView變數
-        val base64 = imageTask("sadasd")
+        val base64 = imageTask("hen85618")
         val bitmap = base64ToBitmap(base64!!)
         geometricView.setImage(bitmap!!)
 //        binding.textView.text =( imageTask("hen85618")+"==").length.toString()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        with(binding){
+            geometricView.setOnClickListener {
+                Navigation.findNavController(it).navigate(R.id.editPhotoFragment)
+            }
+        }
     }
 
     fun image(username: String): String? {

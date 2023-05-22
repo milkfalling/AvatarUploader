@@ -4,15 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".MainFragment">
+    tools:context=".EditPhotoFragment">
 
-    <!--其他的元件若想保有固定大小的話就要把寬度設為常數值，不然會跟著跑版-->
 
     <com.example.avataruploader.GeometricView
-        android:id="@+id/geometricView"
+        android:id="@+id/geometricView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"/>
+        android:layout_height="445dp"
+        android:layout_marginTop="24dp" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="編輯照片" />
 </LinearLayout>
