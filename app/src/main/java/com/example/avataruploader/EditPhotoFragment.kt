@@ -36,16 +36,22 @@ class EditPhotoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding){
-            button.setOnClickListener {
-                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE) //Intent()
-                val file = File(requireContext().getExternalFilesDir(null),"picture.jpg")
-                contentUri = FileProvider.getUriForFile(requireContext(),requireContext().packageName,file)
-                intent.putExtra(MediaStore.EXTRA_OUTPUT,contentUri)
+            btTakePhoto.setOnClickListener {
+                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE) //告訴裝置要使用相機拍照
+                //在外部檔案目錄中建立一個File檔案並命名為picture.jpg        type:不指定子目錄
+                val file = File(requireContext().getExternalFilesDir(null), "picture.jpg")
+                //將上面的file轉換為相應的內容URI(requireContext()獲取上下文,requireContext().packageName獲取應用程式的套件名(為了不要重複識別),File物件)
+                contentUri =
+                    FileProvider.getUriForFile(requireContext(), requireContext().packageName, file)
+                //在intent多加一個欄位，並將上面取得的Uri放到裡面
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, contentUri)
+                //啟動Launcher
                 takePictureLauncher.launch(intent)
             }
         }
     }
     private var takePictureLauncher =
+        //註冊Activity結果處理器(當Activity結束並返回結果時，將執行註冊的結果處理器{result})
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 crop(contentUri)
@@ -62,7 +68,7 @@ class EditPhotoFragment : Fragment() {
     private fun crop(sourceImageUri: Uri) {
         val file = File(requireContext().getExternalFilesDir(null), "picture_cropped.jpg")
         val destinationUri = Uri.fromFile(file)
-        val cropIntent: Intent = UCrop.of(//Intent可以不用寫只是老師特別標出來，
+        val cropIntent: Intent = UCrop.of(
             sourceImageUri,//來源的目的地
             destinationUri//目的地的Uri
         )

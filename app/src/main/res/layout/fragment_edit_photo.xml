@@ -14,8 +14,14 @@
         android:layout_marginTop="24dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btEditPhoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="編輯照片" />
+
+    <Button
+        android:id="@+id/btTakePhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拍拍照" />
 </LinearLayout>
