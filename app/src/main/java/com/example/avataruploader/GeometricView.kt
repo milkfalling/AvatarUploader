@@ -23,7 +23,6 @@ class GeometricView : View {
     private val bitmapPaint =
         Paint(Paint.ANTI_ALIAS_FLAG) //繪製bitmap的畫筆(Paint.ANTI_ALIAS_FLAG抗鋸齒效果，使圖的邊緣更平滑)
     private var image: Bitmap? = null //儲存大頭貼的容器
-    private var crownBitmap: Bitmap? = null //儲存皇冠的容器
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
@@ -35,11 +34,6 @@ class GeometricView : View {
     fun setImage(bitmap: Bitmap) {
         this.image = bitmap
         invalidate() // 通知 View 重新繪製
-    }
-
-    fun setCrownBitmap(crownBitmap: Bitmap) {
-        this.crownBitmap = crownBitmap
-        invalidate() // 通知View重新繪製
     }
 
     override fun onDraw(canvas: Canvas) {
